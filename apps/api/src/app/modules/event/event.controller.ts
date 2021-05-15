@@ -1,4 +1,6 @@
-import { BadRequestException, Body, Controller, Get, Post } from '@nestjs/common';
+import { CreatePariticipantRequest } from '@grofers/api-interfaces';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { ParticipateGuard } from '../../guards/participate.guard';
 
 @Controller('event')
 export class EventController {
@@ -20,11 +22,8 @@ export class EventController {
     }
 
     @Post('participate')
-    createParticipant(@Body() req) {
-        if (!req.event || !req.customer || !req.raffle) {
-            throw new BadRequestException("This method expects event, customer and raffle in the request body");
-        }
-
+    @UseGuards(ParticipateGuard)
+    createParticipant(@Body() req: CreatePariticipantRequest) {
         return ({
             "message": "Participation confirmed"
         })
