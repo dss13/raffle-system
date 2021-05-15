@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@grofers/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@grofers/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@grofers/dto": ["libs/api-interfaces/src/lib/dto/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

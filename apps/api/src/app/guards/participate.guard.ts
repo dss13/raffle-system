@@ -8,8 +8,8 @@ export class ParticipateGuard implements CanActivate {
   ): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest();
     // console.log(request);
-    if (request.body.customerId === "122")
-      throw new BadGatewayException("Already registered");
+    if (request.body.customerId === '122')
+      throw new BadGatewayException('Already registered');
     return true;
   }
 }
