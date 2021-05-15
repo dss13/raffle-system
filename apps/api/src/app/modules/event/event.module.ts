@@ -6,6 +6,7 @@ import { Event, EventSchema } from '../../schemas/event.schema';
 import { Participant, ParticipantSchema } from '../../schemas/participant.schema';
 import { RaffleTicket, RaffleTicketSchema } from '../../schemas/raffle-ticket.schema';
 import { EventController } from './event.controller';
+import { EventRepository } from './event.repository';
 import { EventService } from './event.service';
 
 @Module({
@@ -19,6 +20,6 @@ import { EventService } from './event.service';
     ])
   ],
   controllers: [EventController],
-  providers: [EventService]
+  providers: [EventService, EventRepository]
 })
 export class EventModule {}
