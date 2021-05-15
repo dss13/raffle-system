@@ -12,4 +12,8 @@ export class EventService {
     findEventsInLastWeek() {
         return this.eventRepository.findEventsInLastWeek();
     }
+
+    findUpcomingEvents() {
+        return this.eventRepository.findUpcomingEvents();
+    }
 }

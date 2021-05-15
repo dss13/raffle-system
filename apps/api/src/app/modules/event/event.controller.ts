@@ -7,13 +7,9 @@ import { EventService } from './event.service';
 @Controller('event')
 export class EventController {
     constructor(private eventService: EventService) {}
-    @Get('next')
+    @Get('upcoming')
     getNextEvent() {
-        return ({
-            'name': 'May marathon',
-            'time': new Date().toISOString(),
-            'reward': 'Macbook Air M1 chip'
-        });
+        return this.eventService.findUpcomingEvents();
     }
 
     @Post('create')

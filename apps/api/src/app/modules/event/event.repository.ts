@@ -32,4 +32,13 @@ export class EventRepository {
             }
         }).exec();
     }
+
+    async findUpcomingEvents(): Promise<Event[]> {
+        const date = new Date();
+        return await this.eventModel.find({
+            endsAt: {
+                $gte: date
+            }
+        })
+    }
 }
