@@ -1,10 +1,11 @@
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Schema } from 'mongoose';
 import { RaffleTicket } from '../../schemas/raffle-ticket.schema';
 import { CreateRaffleDto, GetCustomerRaffleDto } from '@grofers/dto';
 import { InternalServerErrorException } from '@nestjs/common';
 
 export class RaffleTicketRepository {
+
     constructor(@InjectModel(RaffleTicket.name) private readonly raffleTicketModel: Model<RaffleTicket>) {}
 
     async createRaffleTicket(createRaffleTicketDto: CreateRaffleDto) {
@@ -31,6 +32,17 @@ export class RaffleTicketRepository {
             return await this.raffleTicketModel.find(payload).exec();
         } catch(error) {
             throw new InternalServerErrorException(error);
+        }
+    }
+
+    async setUsed(id: Schema.Types.ObjectId) {
+        try {
+            const res = await this.raffleTicketModel.findOneAndUpdate({_id: id}, {
+                used: true
+            }).exec();
+            return res;
+        } catch(error) {
+            new InternalServerErrorException(error);
         }
     }
 }

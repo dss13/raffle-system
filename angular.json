@@ -159,7 +159,8 @@
         "serve": {
           "builder": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "luckydraw:build"
+            "buildTarget": "luckydraw:build",
+            "proxyConfig": "apps/luckydraw/proxy.conf.json"
           },
           "configurations": {
             "production": {

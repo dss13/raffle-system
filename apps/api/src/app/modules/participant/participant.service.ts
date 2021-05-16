@@ -8,8 +8,9 @@ import { ParticipantRepository } from './participant.repository';
 export class ParticipantService {
     constructor(private participantRepository: ParticipantRepository, private eventService: EventService, private raffleTicketService: RaffleticketService) {}
 
-    create(createParticipantDto: CreateParticipantDto) {
-        return this.participantRepository.createParticipant(createParticipantDto);
+    async create(createParticipantDto: CreateParticipantDto) {
+        await this.raffleTicketService.setUsed(createParticipantDto.raffleId);
+        return await this.participantRepository.createParticipant(createParticipantDto);
     }
 
     async validateParticipation(createParticipantDto: CreateParticipantDto) {

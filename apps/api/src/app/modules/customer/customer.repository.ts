@@ -28,6 +28,7 @@ export class CustomerRepository {
 
     async findByEmail(email: string) {
         try {
+            console.log(email)
             const customer = await this.customerModel.find({ email }).exec();
             return customer;
         } catch (error) {

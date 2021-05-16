@@ -14,4 +14,9 @@ export class CustomerController {
     create(@Body() createCustomerDto: CreateCustomerDto) {
         return this.customerService.createCustomer(createCustomerDto);
     }
+
+    @Post('exists')
+    exists(@Body() body) {
+        return this.customerService.findUser(body.email);
+    }
 }

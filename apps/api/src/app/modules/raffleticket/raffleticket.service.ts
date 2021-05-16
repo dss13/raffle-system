@@ -6,16 +6,19 @@ import { RaffleTicketRepository } from './raffleticket.repository';
 export class RaffleticketService {
     constructor(private raffleTicketRepository: RaffleTicketRepository) {}
 
-    createRaffleTicket(createRaffleTicketDto: CreateRaffleDto) {
-        console.log(createRaffleTicketDto);
-        return this.raffleTicketRepository.createRaffleTicket(createRaffleTicketDto);
+    async createRaffleTicket(createRaffleTicketDto: CreateRaffleDto) {
+        return await this.raffleTicketRepository.createRaffleTicket(createRaffleTicketDto);
     }
 
-    getRaffleForCustomer(getCustomerRaffleDto: GetCustomerRaffleDto) {
-        return this.raffleTicketRepository.findAllByCustomerId(getCustomerRaffleDto);
+    async getRaffleForCustomer(getCustomerRaffleDto: GetCustomerRaffleDto) {
+        return await this.raffleTicketRepository.findAllByCustomerId(getCustomerRaffleDto);
     }
 
     async findRaffle(payload) {
         return await this.raffleTicketRepository.findRaffle(payload);
+    }
+
+    async setUsed(id) {
+        return await this.raffleTicketRepository.setUsed(id);
     }
 }

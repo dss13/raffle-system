@@ -13,4 +13,8 @@ export class CustomerService {
     async findAll() {
         return this.customerRepository.findAll();
     }
+
+    async findUser(email: any) {
+        return await this.customerRepository.findByEmail(email);
+    }
 }
