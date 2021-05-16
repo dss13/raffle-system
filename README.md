@@ -16,7 +16,7 @@
     ```
     npm run api:serve
     ```
-  **Note** the server listens on port `3333`
+  **Note** the server listens on port `3333` and also make sure that MongoDB server is running
 
 ## Usage
 
@@ -79,3 +79,6 @@
       "raffleId": "60a00a357a23d030081733d9"
   }
   ```
+## Work in progress
+- Create UI using React
+- Dockerize the application
