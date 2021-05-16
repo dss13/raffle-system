@@ -27,7 +27,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "dev:serve": "nx run-many --target=serve --all --parallel=true",
-    "api:serve": "nx run --target=serve --project=api"
+    "api:serve": "nx run api:serve"
   },
   "private": true,
   "dependencies": {
