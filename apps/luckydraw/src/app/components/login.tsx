@@ -21,18 +21,23 @@ export class Login extends Component {
         event.preventDefault();
         // this.setState({ email: event.target.value });
         console.log(event.target.value)
-        this.setState((prev, props) => {
-            email: event.target.value
+        this.setState({
+            email: event.target.value,
+            error: false
         })
     }
     async getData() {
         const url = 'http://localhost:3333/api/customer/exists';
         // const email = this.state.email;
         console.log(this.state);
-        return;
 
-        const data = await axios.post(url, this.state);
+        const { data } = await axios.post(url, this.state);
         console.log(data);
+        if (!data || data.length === 0) {
+            this.setState({
+                error: true
+            })
+        }
     }
     render() {
         return (
