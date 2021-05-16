@@ -31,13 +31,6 @@
     "luckydraw-e2e": {
       "tags": [],
       "implicitDependencies": ["luckydraw"]
-    },
-    "luckydraw-ng": {
-      "tags": []
-    },
-    "luckydraw-ng-e2e": {
-      "tags": [],
-      "implicitDependencies": ["luckydraw-ng"]
     }
   }
 }
