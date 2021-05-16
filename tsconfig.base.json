@@ -19,5 +19,6 @@
       "@grofers/dto": ["libs/api-interfaces/src/lib/dto/index.ts"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
+  "strictTemplates": false
 }

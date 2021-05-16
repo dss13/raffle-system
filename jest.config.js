@@ -1,3 +1,8 @@
 module.exports = {
-  projects: ['<rootDir>/apps/luckydraw', '<rootDir>/apps/api'],
+  projects: [
+    ,
+    '<rootDir>/apps/api',
+    '<rootDir>/apps/luckydraw',
+    '<rootDir>/apps/luckydraw-ng',
+  ],
 };

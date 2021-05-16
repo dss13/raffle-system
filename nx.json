@@ -19,6 +19,12 @@
     }
   },
   "projects": {
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
     "luckydraw": {
       "tags": []
     },
@@ -26,11 +32,12 @@
       "tags": [],
       "implicitDependencies": ["luckydraw"]
     },
-    "api": {
+    "luckydraw-ng": {
       "tags": []
     },
-    "api-interfaces": {
-      "tags": []
+    "luckydraw-ng-e2e": {
+      "tags": [],
+      "implicitDependencies": ["luckydraw-ng"]
     }
   }
 }

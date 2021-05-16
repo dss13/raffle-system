@@ -23,6 +23,14 @@ export class WinnerService {
     }
 
     async getAllWinners() {
-        return this.eventService.findEventsInLastWeek();
+        const events = await this.eventService.findEventsInLastWeek();
+
+        const res = await events.map((event: any) => ({
+            winner: event.winner.name,
+            name: event.name,
+            reward: event.reward,
+            end: event.endsAt
+        }));
+        return res;
     }
 }
