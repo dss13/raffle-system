@@ -17,14 +17,6 @@ export class EventController {
         return this.eventService.create(createEventDto);
     }
 
-    @Get('winners')
-    getWinners() {
-        return ([{
-            'name': 'Sumugan',
-            'event': 'May marathon'
-        }])
-    }
-
     @Post('participate')
     @UseGuards(ParticipateGuard)
     createParticipant(@Body() req: CreatePariticipantRequest) {

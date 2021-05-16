@@ -14,6 +14,9 @@ export class Event {
   @Prop({ required: true, type: mongoose.Schema.Types.Date })
   endsAt: Date;
 
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Customer' })
+  winner: mongoose.Schema.Types.ObjectId;
+
   @Prop({ default: Date.now, type: mongoose.Schema.Types.Date })
   updatedAt: Date;
 

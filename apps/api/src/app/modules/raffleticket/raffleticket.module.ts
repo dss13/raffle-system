@@ -18,6 +18,7 @@ import { RaffleticketService } from './raffleticket.service';
     ])
   ],
   controllers: [RaffleticketController],
-  providers: [RaffleticketService, RaffleTicketRepository]
+  providers: [RaffleticketService, RaffleTicketRepository],
+  exports: [RaffleticketService]
 })
 export class RaffleticketModule {}

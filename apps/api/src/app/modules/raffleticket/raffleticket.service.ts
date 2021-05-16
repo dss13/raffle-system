@@ -14,4 +14,8 @@ export class RaffleticketService {
     getRaffleForCustomer(getCustomerRaffleDto: GetCustomerRaffleDto) {
         return this.raffleTicketRepository.findAllByCustomerId(getCustomerRaffleDto);
     }
+
+    async findRaffle(payload) {
+        return await this.raffleTicketRepository.findRaffle(payload);
+    }
 }

@@ -25,4 +25,12 @@ export class RaffleTicketRepository {
             throw new InternalServerErrorException(error);
         }
     }
+
+    async findRaffle(payload) {
+        try {
+            return await this.raffleTicketModel.find(payload).exec();
+        } catch(error) {
+            throw new InternalServerErrorException(error);
+        }
+    }
 }

@@ -9,6 +9,8 @@ import { RaffleticketModule } from './modules/raffleticket/raffleticket.module';
 import { RequestBodyValidatorPipe } from './pipes/request-body-validator.pipe';
 
 import { MongooseModule } from '@nestjs/mongoose';
+import { ParticipantModule } from './modules/participant/participant.module';
+import { WinnerModule } from './modules/winner/winner.module';
 
 @Module({
   imports: [
@@ -17,7 +19,9 @@ import { MongooseModule } from '@nestjs/mongoose';
     RaffleticketModule,
     RequestBodyValidatorPipe,
     ParticipateGuard,
-    MongooseModule.forRoot('mongodb://localhost/grofers')
+    MongooseModule.forRoot('mongodb://localhost/grofers'),
+    ParticipantModule,
+    WinnerModule
   ],
   controllers: [AppController],
   providers: [

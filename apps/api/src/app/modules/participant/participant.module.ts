@@ -1,29 +1,30 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ParticipateGuard } from '../../guards/participate.guard';
 import { Customer, CustomerSchema } from '../../schemas/customer.schema';
 import { Event, EventSchema } from '../../schemas/event.schema';
 import { Participant, ParticipantSchema } from '../../schemas/participant.schema';
 import { RaffleTicket, RaffleTicketSchema } from '../../schemas/raffle-ticket.schema';
-import { ParticipantModule } from '../participant/participant.module';
+import { EventModule } from '../event/event.module';
 import { RaffleticketModule } from '../raffleticket/raffleticket.module';
-import { EventController } from './event.controller';
-import { EventRepository } from './event.repository';
-import { EventService } from './event.service';
+import { ParticipateGuard } from './guards/participate.guard';
+import { ParticipantController } from './participant.controller';
+import { ParticipantRepository } from './participant.repository';
+import { ParticipantService } from './participant.service';
+
 
 @Module({
   imports: [
-    ParticipateGuard,
     MongooseModule.forFeature([
       { name: Customer.name, schema: CustomerSchema },
       { name: Event.name, schema: EventSchema },
       { name: Participant.name, schema: ParticipantSchema },
       { name: RaffleTicket.name, schema: RaffleTicketSchema },
     ]),
+    EventModule,
     RaffleticketModule
   ],
-  controllers: [EventController],
-  providers: [EventService, EventRepository],
-  exports: [EventService]
+  controllers: [ParticipantController],
+  providers: [ParticipantService, ParticipantRepository, ParticipateGuard],
+  exports: [ParticipantService]
 })
-export class EventModule {}
+export class ParticipantModule {}

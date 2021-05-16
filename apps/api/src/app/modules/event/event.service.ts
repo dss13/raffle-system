@@ -1,19 +1,33 @@
 import { CreateEventDto } from '@grofers/dto';
 import { Injectable } from '@nestjs/common';
+import { ParticipantService } from '../participant/participant.service';
 import { EventRepository } from './event.repository';
 
 @Injectable()
 export class EventService {
     constructor(private eventRepository: EventRepository) {}
-    create(createEventDto: CreateEventDto) {
-        return this.eventRepository.createEvent(createEventDto);
+    async create(createEventDto: CreateEventDto) {
+        return await this.eventRepository.createEvent(createEventDto);
     }
 
-    findEventsInLastWeek() {
+    async findEventsInLastWeek() {
         return this.eventRepository.findEventsInLastWeek();
     }
 
-    findUpcomingEvents() {
-        return this.eventRepository.findUpcomingEvents();
+    async findUpcomingEvents() {
+        return await this.eventRepository.findUpcomingEvents();
+    }
+
+    async findById(id) {
+        return await this.eventRepository.findById(id);
+    }
+
+    async findAllEndedWithNoWinner() {
+        return await this.eventRepository.findAllEndedWithNoWinner();
+    }
+
+    async setWinner(eventId, customerId) {
+        console.log(eventId, customerId)
+        return await this.eventRepository.setWinner(eventId, customerId);
     }
 }
