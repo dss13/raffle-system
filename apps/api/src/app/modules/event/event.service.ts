@@ -1,4 +1,4 @@
-import { CreateEventDto } from '@grofers/dto';
+import { CreateEventDto, GetCustomerRaffleDto } from '@grofers/dto';
 import { Injectable } from '@nestjs/common';
 import { ParticipantService } from '../participant/participant.service';
 import { EventRepository } from './event.repository';
@@ -29,5 +29,11 @@ export class EventService {
     async setWinner(eventId, customerId) {
         console.log(eventId, customerId)
         return await this.eventRepository.setWinner(eventId, customerId);
+    }
+
+    async getUpcomingForCustomer(mapParticipations: any[]) {
+        mapParticipations = mapParticipations.map(item => item._id);
+        console.log(mapParticipations)
+        return await this.eventRepository.findEventsNotIn(mapParticipations);
     }
 }

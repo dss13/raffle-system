@@ -5,7 +5,6 @@ import { CreateRaffleDto, GetCustomerRaffleDto } from '@grofers/dto';
 import { InternalServerErrorException } from '@nestjs/common';
 
 export class RaffleTicketRepository {
-
     constructor(@InjectModel(RaffleTicket.name) private readonly raffleTicketModel: Model<RaffleTicket>) {}
 
     async createRaffleTicket(createRaffleTicketDto: CreateRaffleDto) {
@@ -43,6 +42,15 @@ export class RaffleTicketRepository {
             return res;
         } catch(error) {
             new InternalServerErrorException(error);
+        }
+    }
+
+    async findUnused(getCustomerRaffleDto: GetCustomerRaffleDto) {
+        try {
+            const res = await this.raffleTicketModel.find({ customer: getCustomerRaffleDto.customerId, used: false }).exec();
+            return res;
+        } catch(error) {
+            throw new InternalServerErrorException(error);
         }
     }
 }

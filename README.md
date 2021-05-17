@@ -12,13 +12,26 @@
     ```
     npm install
     ```
-3. After successful installation of all the dependencies, you can start the API using
+3. After successful installation of all the dependencies, you can start the API and React app using
     ```
-    npm run api:serve
+    npm run dev:serve
     ```
-  **Note** the server listens on port `3333` and also make sure that MongoDB server is running
+  **Note** the API server listens on port `3333` and React app runs on `4200` and also make sure that MongoDB server is running
 
 ## Usage
+
+### React app
+#### Admin page
+- After running the above commands, the app would run on `http://localhost:4200`.
+- To access the admin page where users and events can be created, go to `http://localhost:4200/admin`.
+- The login credential is `admin`
+- To compute and get winners of events in last 7 days, simply hit `http://localhost:3333/api/winners`.
+
+#### Customer portal
+- To login to customer portal, create a customer/user through admin page and enter the email id of the registered customers.
+- After logging in, you would see the dashboard where you could find your participations and upcoming events.
+- You can also request for raffle tickets, using the `Get Raffle ticket` link in the navbar.
+- To participate in an active event, click on participate and choose a raffle ticket to try your luck.
 
 ### Customer API
 - To create a customer(name and email are mandatory and email should be unique)
@@ -79,6 +92,3 @@
       "raffleId": "60a00a357a23d030081733d9"
   }
   ```
-## Work in progress
-- Create UI using React
-- Dockerize the application

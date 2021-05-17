@@ -18,4 +18,9 @@ export class RaffleticketController {
     forCustomer(@Body() req: GetCustomerRaffleDto) {
         return this.raffleTicketService.getRaffleForCustomer(req);
     }
+
+    @Post('unused')
+    getUnused(@Body() req: GetCustomerRaffleDto) {
+        return this.raffleTicketService.getUnused(req);
+    }
 }

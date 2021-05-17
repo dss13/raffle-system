@@ -11,6 +11,7 @@ import { RequestBodyValidatorPipe } from './pipes/request-body-validator.pipe';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ParticipantModule } from './modules/participant/participant.module';
 import { WinnerModule } from './modules/winner/winner.module';
+import { DataModule } from './modules/data/data.module';
 
 @Module({
   imports: [
@@ -21,7 +22,8 @@ import { WinnerModule } from './modules/winner/winner.module';
     ParticipateGuard,
     MongooseModule.forRoot('mongodb://localhost/grofers'),
     ParticipantModule,
-    WinnerModule
+    WinnerModule,
+    DataModule
   ],
   controllers: [AppController],
   providers: [

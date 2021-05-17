@@ -6,6 +6,7 @@ import { ConflictException, InternalServerErrorException } from '@nestjs/common'
 
 export class EventRepository {
 
+
     constructor(@InjectModel(Event.name) private readonly eventModel: Model<Event>) {}
 
     async createEvent(createEventDto: CreateEventDto) {
@@ -92,6 +93,20 @@ export class EventRepository {
             return res;
         } catch(error) {
             new InternalServerErrorException(error);
+        }
+    }
+
+    async findEventsNotIn(mapParticipations: any) {
+        try {
+            const res = await this.eventModel.find({
+                endsAt: {
+                    '$gte': new Date()
+                }
+            }).where('_id').nin(mapParticipations).exec()
+            console.log(res);
+            return res
+        } catch (error) {
+            throw new InternalServerErrorException(error);
         }
     }
 }

@@ -5,35 +5,33 @@ import star from './star.svg';
 
 import { Route, Link } from 'react-router-dom';
 import Login from './components/login';
+import { Dashboard } from './components/dashboard';
+import { AdminDashboard } from './components/admin-dashboard';
+import { AdminLogin } from './components/admin-login';
 
 export function App() {
   return (
 
       <div className={styles.app}>
-        <div role="navigation">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/page-2">Page 2</Link>
-            </li>
-          </ul>
-        </div>
         <Route
           path="/"
           exact
-          render={() => (
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          )}
+          component={Login}
         />
         <Route
-          path="/page-2"
+          path="/admin"
           exact
-          component={Login}
+          component={AdminLogin}
+        />
+        <Route
+          path="/admin/dashboard"
+          exact
+          component={AdminDashboard}
+        />
+        <Route
+            path="/dashboard"
+            exact
+            component={Dashboard}
         />
         {/* END: routes */}
       </div>

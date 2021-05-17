@@ -1,4 +1,4 @@
-import { CreateParticipantDto } from '@grofers/dto';
+import { CreateParticipantDto, GetCustomerRaffleDto } from '@grofers/dto';
 import { ConflictException, Injectable, NotAcceptableException } from '@nestjs/common';
 import { EventService } from '../event/event.service';
 import { RaffleticketService } from '../raffleticket/raffleticket.service';
@@ -56,5 +56,9 @@ export class ParticipantService {
     async findByEvent(payload) {
         const randomLimit = parseInt((Math.random() * 1000 * 1000) + "");
         return await this.participantRepository.findByEvent(payload, randomLimit);
+    }
+
+    async findCustomerParticipations(getCustomerRaffleDto: GetCustomerRaffleDto) {
+        return await this.participantRepository.findByCustomer(getCustomerRaffleDto);
     }
 }

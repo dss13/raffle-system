@@ -4,6 +4,7 @@ import { RaffleTicketRepository } from './raffleticket.repository';
 
 @Injectable()
 export class RaffleticketService {
+
     constructor(private raffleTicketRepository: RaffleTicketRepository) {}
 
     async createRaffleTicket(createRaffleTicketDto: CreateRaffleDto) {
@@ -20,5 +21,9 @@ export class RaffleticketService {
 
     async setUsed(id) {
         return await this.raffleTicketRepository.setUsed(id);
+    }
+
+    async getUnused(getCustomerRaffleDto: GetCustomerRaffleDto) {
+        return await this.raffleTicketRepository.findUnused(getCustomerRaffleDto);
     }
 }
