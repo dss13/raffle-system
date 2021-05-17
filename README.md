@@ -6,7 +6,7 @@
 ## Setup
 1. Clone the repository using the below command.
     ```
-    git clone https://github.com/dss13/grofers.git
+    git clone https://github.com/dss13/raffle-system.git
     ```
 2. Install both dependencies and devDependencies using
     ```
@@ -25,8 +25,8 @@
   ```
   POST http://localhost:3333/api/customer/create
   {
-    "name": "Sumugan Swaroop",
-    "email": "sumuganswaroop@gmail.com"
+    "name": "John Doe",
+    "email": "john.doe@email.com"
   }
   ```
 - To fetch all the customers
@@ -53,7 +53,7 @@
   ```
   POST http://localhost:3333/api/event/create
   {
-      "name": "Grofers sale",
+      "name": "Sale",
       "reward": "iPhone XR",
       "endsAt": "2021-05-07T18:21:57"
   }
