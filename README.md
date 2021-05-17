@@ -1,4 +1,4 @@
-# Grofers
+# Raffle system
 ## Pre-requisites
 - Node.js (v12 or above)
 - MongoDB
