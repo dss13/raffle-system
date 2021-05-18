@@ -25,7 +25,7 @@
 - After running the above commands, the app would run on `http://localhost:4200`.
 - To access the admin page where users and events can be created, go to `http://localhost:4200/admin`.
 - The login credential is `admin`
-- To compute and get winners of events in last 7 days, simply hit `http://localhost:3333/api/winners`.
+- To compute winners hit `http://localhost:3333/api/winners` from browser and to get winners of events in last 7 days, simply hit `http://localhost:3333/api/winners`.
 
 #### Customer portal
 - To login to customer portal, create a customer/user through admin page and enter the email id of the registered customers.
